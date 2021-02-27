@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>joe's web</title>
+    <link rel="stylesheet" href="joes.css">
+    <style type="text/css">
+    
+      * {
+          box-sizing: border-box;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+          background-color: #e76f51;
+        }
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px; 
+        font-size: 25px;
+        color: #F4B942;
+      }
+
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      h1 {
+        color: #264653;
+      }
+      
+    </style>
+  </head>
+  
+  
+  
+  <body>
+    <h1>Thank you for ordering from Joe's. <br> Here is your order summary: </h1>
+    
+    <div class="row">
+  
+    </div>
+    
+    
+    <script type="text/javascript">
+    
+    //items ordered and quantities
+    numberHotdog = prompt ("Welcome to Joe's Hotdog Stand, how many hotdogs you'd like?", "");
+    numberFries = prompt ("Got it, how many fries you'd like?", "");
+    numberSoda = prompt ("Okay, how many sodas you'd like?", "");
+    
+    document.write("<span class='column'> You have ordered " + numberHotdog + " hotdog(s), " + numberFries + " French Fries and " + numberFries + " soda(s). </span>");
+    document.write("<br>")
+    
+    //subtotal
+    var subtotal;
+    subtotal = numberHotdog * 3.25 + numberFries * 2 + numberSoda * 1.5;
+    document.write("Your subtotal is $" + subtotal + ".");
+    document.write("<br>")
+    
+    //discount if applicable 
+    if (subtotal >= 20){
+        subtotal = subtotal * 0.9;
+        price = subtotal.toFixed(2);
+        document.write("Wait, congrats! Looks like we have a <b>10%</b> discount for you! Your subtotal is now $" + price + ".");
+    
+    } else {
+        lessThan20 = 20 - subtotal;
+        price = lessThan20.toFixed(2);
+        document.write("You are $" + price + " away from getting a 10% discount at Joe's! ");
+
+    }
+      
+    //tax and totol
+    var tax = subtotal * 0.0625;
+    taxRounded = tax.toFixed(2);
+      
+    var total = tax + subtotal;
+    totalBill = total.toFixed(2);
+    
+    // totalRounded = totalBill.toFixed(2);
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("You order in total is $" + price + " + $" + taxRounded + " (Massachusetts tax 6.25%) = $" + totalBill + " ." );
+    
+    
+    </script>
+    
+    
+    
+  </body>
+</html>
