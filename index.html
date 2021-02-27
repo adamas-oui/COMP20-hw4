@@ -55,36 +55,48 @@
     document.write("<br>")
     
     //subtotal
-    var subtotal;
-    subtotal = numberHotdog * 3.25 + numberFries * 2 + numberSoda * 1.5;
-    document.write("Your subtotal is $" + subtotal + ".");
+    var subtotal = numberHotdog * 3.25 + numberFries * 2 + numberSoda * 1.5;
+    subtotalRounded = subtotal.toFixed(2);
+    document.write("Your subtotal is $" + subtotalRounded + ".");
     document.write("<br>")
     
     //discount if applicable 
     if (subtotal >= 20){
-        subtotal = subtotal * 0.9;
-        price = subtotal.toFixed(2);
-        document.write("Wait, congrats! Looks like we have a <b>10%</b> discount for you! Your subtotal is now $" + price + ".");
-    
+        subtotalDiscounted = subtotal * 0.9;
+        priceDiscounted = subtotalDiscounted.toFixed(2);
+        document.write("Wait, congrats! Looks like we have a <b>10%</b> discount for you! Your subtotal is now $" + priceDiscounted + ".");
+        
+        //tax and totol
+        var tax = subtotalDiscounted * 0.0625;
+        taxRounded = tax.toFixed(2);
+          
+        var total = tax + subtotalDiscounted;
+        totalRounded = total.toFixed(2);
+        
+        // totalRounded = totalBill.toFixed(2);
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("You order in total is $" + priceDiscounted + " (with discount applied) "+ " + $" + taxRounded + " (Massachusetts tax 6.25%) = $" + totalRounded + " ." );
     } else {
         lessThan20 = 20 - subtotal;
-        price = lessThan20.toFixed(2);
-        document.write("You are $" + price + " away from getting a 10% discount at Joe's! ");
+        priceNoDiscount = lessThan20.toFixed(2);
+        document.write("You are $" + priceNoDiscount + " away from getting a <b>10%</b> discount at Joe's! ");
+        
+        //tax and totol
+        var tax = subtotal * 0.0625;
+        taxRounded = tax.toFixed(2);
+          
+        var total = tax + subtotal;
+        totalRounded = total.toFixed(2);
+        
+        // totalRounded = totalBill.toFixed(2);
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("You order in total is $" + subtotalRounded + " + $" + taxRounded + " (Massachusetts tax 6.25%) = $" + totalRounded + " ." );
+    } 
 
-    }
-      
-    //tax and totol
-    var tax = subtotal * 0.0625;
-    taxRounded = tax.toFixed(2);
-      
-    var total = tax + subtotal;
-    totalBill = total.toFixed(2);
-    
-    // totalRounded = totalBill.toFixed(2);
-    document.write("<br>");
-    document.write("<br>");
-    document.write("<br>");
-    document.write("You order in total is $" + subtotal + " + $" + taxRounded + " (Massachusetts tax 6.25%) = $" + totalBill + " ." );
     
     
     </script>
